@@ -96,7 +96,7 @@ class Structured extends AnthropicHandlerAbstract
         // Add MCP servers if present
         if (! empty($request->mcpServers())) {
             $payload['mcp_servers'] = array_map(
-                fn ($mcpServer) => $mcpServer->toArray(),
+                fn ($mcpServer): array => $mcpServer->toArray(),
                 $request->mcpServers()
             );
         }

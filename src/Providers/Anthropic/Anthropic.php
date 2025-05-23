@@ -84,7 +84,7 @@ readonly class Anthropic implements Provider
         $betaFeatures = $this->betaFeatures;
         
         // Automatically add MCP Connector beta header if MCP servers are present
-        if (($request instanceof TextRequest || $request instanceof StructuredRequest) && ! empty($request->mcpServers())) {
+        if (($request instanceof TextRequest || $request instanceof StructuredRequest) && $request->mcpServers() !== []) {
             $mcpBeta = 'mcp-client-2025-04-04';
             $betaFeatures = $betaFeatures ? $betaFeatures . ',' . $mcpBeta : $mcpBeta;
         }

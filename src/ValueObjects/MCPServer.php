@@ -25,7 +25,7 @@ class MCPServer
             $config['authorization_token'] = $this->authorizationToken;
         }
 
-        if (! empty($this->toolConfiguration)) {
+        if ($this->toolConfiguration !== []) {
             $config['tool_configuration'] = $this->toolConfiguration;
         }
 
